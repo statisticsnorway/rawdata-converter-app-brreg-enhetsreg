@@ -55,7 +55,7 @@ public class EnhetsregRawdataConverter implements RawdataConverter {
 
         targetAvroSchema = new AggregateSchemaBuilder(targetNamespace)
                 .schema(FIELDNAME_DC_MANIFEST, dcManifestSchemaAdapter.getDcManifestSchema())
-                .schema("EnhetsRegisteret", dataSchema)
+                .schema("enhet", dataSchema)
                 .build();
     }
 
@@ -99,10 +99,12 @@ public class EnhetsregRawdataConverter implements RawdataConverter {
 
         msg.getAllItemMetadata().values()
                 .forEach(value -> {
+                    try {
                         String s = new String(rawdataMessage.get(value.getContentKey()));
                         builder.withRecord(value.getContentKey(), ToGenericRecord.from(s, dataSchema));
-
-
+                    } catch (EnhetsregRawdataConverterException e) {
+                        throw e;
+                    }
                 });
 
 

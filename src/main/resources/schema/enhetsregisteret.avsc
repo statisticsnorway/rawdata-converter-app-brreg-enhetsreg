@@ -8,7 +8,8 @@
     },
     {
       "name": "navn",
-      "type": ["null", "string"]
+      "type": ["null", "string"],
+      "default":null
     },
     {
       "name": "organisasjonsform",
@@ -18,7 +19,7 @@
         "fields": [
           {
             "name": "kode",
-            "type": "string",
+            "type": ["null", "string"],
             "default":null
           },
           {
@@ -31,16 +32,35 @@
     },
     {
       "name": "registreringsdatoEnhetsregisteret",
-      "type": ["null", "string"]
+      "type": ["null", "string"],
+      "default":null
     },
     {
       "name": "registrertIMvaregisteret",
-      "type": "boolean",
+      "type": ["null", "boolean"],
+      "default":null
+    },
+    {
+      "name": "naeringskode1",
+      "type": ["null",{
+        "name": "naeringskode1",
+        "type": "record",
+        "fields": [
+          {
+            "name": "beskrivelse",
+            "type": "string"
+          },
+          {
+            "name": "kode",
+            "type": "string"
+          }
+        ]
+      }],
       "default":null
     },
     {
       "name": "antallAnsatte",
-      "type": "int",
+      "type": ["null", "int"],
       "default":null
     },
     {
@@ -51,11 +71,13 @@
         "fields": [
           {
             "name": "land",
-            "type": "string"
+            "type": ["null", "string"],
+            "default":null
           },
           {
             "name": "landkode",
-            "type": "string"
+            "type": ["null", "string"],
+            "default":null
           },
           {
             "name": "postnummer",
@@ -112,7 +134,7 @@
     },
     {
       "name": "stiftelsesdato",
-      "type": ["string","null"],
+      "type": ["null", "string"],
       "default":null
     },
     {

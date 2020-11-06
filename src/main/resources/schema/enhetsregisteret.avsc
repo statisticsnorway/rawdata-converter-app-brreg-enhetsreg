@@ -1,149 +1,154 @@
 {
-   "type":"record",
-   "name":"root",
-   "fields":[
-      {
-         "name":"rootItems",
-         "type":{
-            "type":"array",
-            "items":{
-               "type":"record",
-               "name":"enhets",
-               "fields":[
-                  {
-                     "name":"organisasjonsnummer",
-                     "type":"string"
-                  },
-                  {
-                     "name":"navn",
-                     "type":"string"
-                  },
-                  {
-                     "name":"organisasjonsform",
-                     "type":{
-                        "type":"record",
-                        "name":"organisasjonsform",
-                        "fields":[
-                           {
-                              "name":"kode",
-                              "type":[
-                                 "string"
-                              ],
-                              "default":null
-                           },
-                           {
-                              "name":"beskrivelse",
-                              "type":[
-                                 "string"
-                              ],
-                              "default":null
-                           },
-                           {
-                              "name":"links",
-                              "type":{
-                                 "type":"array",
-                                 "name":"links",
-                                 "items":"string"
-                              },
-                              "default":null
-                           }
-                        ]
-                     }
-                  },
-                  {
-                     "name":"registreringsdatoEnhetsregisteret",
-                     "type":"string"
-                  },
-                  {
-                     "name":"registrertIMvaregisteret",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"antallAnsatte",
-                     "type":"int"
-                  },
-                  {
-                     "name":"forretningsadresse",
-                     "type":{
-                        "type":"record",
-                        "name":"forretningsadresse",
-                        "fields":[
-                           {
-                              "name":"land",
-                              "type":[
-                                 "string"
-                              ],
-                              "default":null
-                           },
-                           {
-                              "name":"landkode",
-                              "type":[
-                                 "string"
-                              ],
-                              "default":null
-                           },
-                           {
-                              "name":"poststed",
-                              "type":[
-                                 "string"
-                              ],
-                              "default":null
-                           },
-                           {
-                              "name":"adresse",
-                              "type":{
-                                 "type":"array",
-                                 "name":"links",
-                                 "items":"string"
-                              },
-                              "default":null
-                           }
-                        ]
-                     }
-                  },
-                  {
-                     "name":"stiftelsesdato",
-                     "type":"string"
-                  },
-                  {
-                     "name":"registrertIForetaksregisteret",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"registrertIStiftelsesregisteret",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"registrertIFrivillighetsregisteret",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"konkurs",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"underAvvikling",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"underTvangsavviklingEllerTvangsopplosning",
-                     "type":"boolean"
-                  },
-                  {
-                     "name":"maalform",
-                     "type":"string"
-                  },
-                  {
-                     "name":"links",
-                     "type":{
-                        "type":"array",
-                        "name":"someArrayType",
-                        "items":"string"
-                     }
-                  }
-               ]
-            }
-         }
+  "name": "enhet",
+  "type": "record",
+  "fields": [
+    {
+      "name": "organisasjonsnummer",
+      "type": "string"
+    },
+    {
+      "name": "navn",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "organisasjonsform",
+      "type": {
+        "name": "organisasjonsform",
+        "type": "record",
+        "fields": [
+          {
+            "name": "kode",
+            "type": "string",
+            "default":null
+          },
+          {
+            "name": "beskrivelse",
+            "type": ["null", "string"]
+          }
+        ],
+        "default":null
       }
-   ]
+    },
+    {
+      "name": "registreringsdatoEnhetsregisteret",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "registrertIMvaregisteret",
+      "type": "boolean",
+      "default":null
+    },
+    {
+      "name": "antallAnsatte",
+      "type": "int",
+      "default":null
+    },
+    {
+      "name": "forretningsadresse",
+      "type": ["null",{
+        "name": "forretningsadresse",
+        "type": "record",
+        "fields": [
+          {
+            "name": "land",
+            "type": "string"
+          },
+          {
+            "name": "landkode",
+            "type": "string"
+          },
+          {
+            "name": "postnummer",
+            "type": ["null", "string"],
+            "default":null
+          },
+          {
+            "name": "poststed",
+            "type": ["null", "string"],
+            "default":null
+          },
+          {
+            "name": "adresse",
+            "type": {
+              "type": "array",
+              "items": "string"
+            }
+          },
+          {
+            "name": "kommune",
+            "type": ["null", "string"],
+            "default":null
+          },
+          {
+            "name": "kommunenummer",
+            "type": ["null", "string"],
+            "default":null
+          }
+        ],
+        "default":null
+      }],
+      "default":null
+    },
+    {
+      "name": "institusjonellSektorkode",
+      "type":["null",
+      {
+        "name": "institusjonellSektorkode",
+        "type": "record",
+        "fields": [
+          {
+            "name": "kode",
+            "type": ["null", "string"],
+            "default":null
+          },
+          {
+            "name": "beskrivelse",
+            "type": ["null", "string"],
+            "default":null
+          }
+        ]
+      }],
+      "default":null
+    },
+    {
+      "name": "stiftelsesdato",
+      "type": ["string","null"],
+      "default":null
+    },
+    {
+      "name": "registrertIForetaksregisteret",
+      "type": ["boolean","null"],
+      "default":null
+    },
+    {
+      "name": "registrertIStiftelsesregisteret",
+      "type": ["boolean","null"],
+      "default":null
+    },
+    {
+      "name": "registrertIFrivillighetsregisteret",
+      "type": ["boolean","null"],
+      "default":null
+    },
+    {
+      "name": "konkurs",
+      "type": ["boolean","null"],
+      "default":null
+    },
+    {
+      "name": "underAvvikling",
+      "type": ["boolean","null"],
+      "default":null
+    },
+    {
+      "name": "underTvangsavviklingEllerTvangsopplosning",
+      "type": ["boolean","null"],
+      "default":null
+    },
+    {
+      "name": "maalform",
+      "type": ["null", "string"],
+      "default":null
+    }
+  ]
 }

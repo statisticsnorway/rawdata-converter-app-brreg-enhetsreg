@@ -1,7 +1,7 @@
 micronaut:
   application.name: rawdata-converter-app-brreg-enhetsreg
   server:
-    port: 28089
+    port: 28088
 
 logger.levels:
   no.ssb.rawdata.converter: DEBUG
@@ -71,18 +71,14 @@ rawdata.converter:
         valuation: INTERNAL
         type: BOUNDED
         publish-metadata: false
-      pseudo-rules:
-        - name: fodselsnummer
-          pattern: '**/{folkeregisteridentifikator,foedselsEllerDNummer}'
-          func: fpe-fnr(secret1)
 
     job-blah:
       parent: base
       active-by-default: true
       rawdata-source:
         name: fs-enhetsregisteret
-        topic: brreg-enhetsreg-test
+        topic: enhet
         initial-position: FIRST
       target-storage:
         path: /kilde/brreg-enhetsreg/raadata/20201103
-        version: 1598553650000
+        version: 1598553650001

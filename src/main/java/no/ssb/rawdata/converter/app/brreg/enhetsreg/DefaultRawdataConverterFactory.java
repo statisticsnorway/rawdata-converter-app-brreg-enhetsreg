@@ -18,14 +18,14 @@ import javax.inject.Singleton;
 @Slf4j
 public class DefaultRawdataConverterFactory implements RawdataConverterFactory {
     private final FieldPseudonymizerFactory pseudonymizerFactory;
-    private final enhetsregRawdataConverterConfig defaultRawdataConverterConfig;
+    private final EnhetsregRawdataConverterConfig defaultRawdataConverterConfig;
 
     @Override
     public RawdataConverter newRawdataConverter(ConverterJobConfig jobConfig, String converterConfigJson) {
-        enhetsregRawdataConverterConfig converterConfig = defaultRawdataConverterConfig;
+        EnhetsregRawdataConverterConfig converterConfig = defaultRawdataConverterConfig;
         if (converterConfigJson != null) {
             try {
-                Json.toObject(enhetsregRawdataConverterConfig.class, converterConfigJson);
+                Json.toObject(EnhetsregRawdataConverterConfig.class, converterConfigJson);
             }
             catch (Exception e) {
                 throw new RawdataConverterException("Invalid enhetsregRawdataConverterConfig params: " + converterConfigJson, e);
@@ -35,7 +35,7 @@ public class DefaultRawdataConverterFactory implements RawdataConverterFactory {
         return newRawdataConverter(jobConfig, converterConfig);
     }
 
-    public RawdataConverter newRawdataConverter(ConverterJobConfig jobConfig, enhetsregRawdataConverterConfig converterConfig) {
+    public RawdataConverter newRawdataConverter(ConverterJobConfig jobConfig, EnhetsregRawdataConverterConfig converterConfig) {
         ValueInterceptorChain valueInterceptorChain = new ValueInterceptorChain();
 
         if (jobConfig.getPseudoRules() != null && ! jobConfig.getPseudoRules().isEmpty()) {
@@ -45,10 +45,10 @@ public class DefaultRawdataConverterFactory implements RawdataConverterFactory {
 
         // Make sure the converterConfig is not null
         if (converterConfig == null) {
-            converterConfig = (defaultRawdataConverterConfig == null) ? new enhetsregRawdataConverterConfig() : defaultRawdataConverterConfig;
+            converterConfig = (defaultRawdataConverterConfig == null) ? new EnhetsregRawdataConverterConfig() : defaultRawdataConverterConfig;
         }
 
-        return new enhetsregRawdataConverter(converterConfig, valueInterceptorChain);
+        return new EnhetsregRawdataConverter(converterConfig, valueInterceptorChain);
     }
 
 }

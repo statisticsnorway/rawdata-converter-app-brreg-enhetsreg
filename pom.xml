@@ -49,6 +49,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>no.ssb.avro.convert.json</groupId>
+            <artifactId>avro-buddy-json</artifactId>
+        </dependency>
+        <dependency>
             <groupId>no.ssb.rawdata.converter</groupId>
             <artifactId>rawdata-converter-coredux</artifactId>
         </dependency>

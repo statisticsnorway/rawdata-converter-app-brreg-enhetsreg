@@ -5,7 +5,7 @@ import lombok.Data;
 
 @ConfigurationProperties("rawdata.converter.app.brreg-enhetsreg")
 @Data
-public class enhetsregRawdataConverterConfig {
+public class EnhetsregRawdataConverterConfig {
 
     /**
      * <p>Some config param</p>

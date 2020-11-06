@@ -77,7 +77,7 @@ rawdata.converter:
       active-by-default: true
       rawdata-source:
         name: fs-enhetsregisteret
-        topic: enhet
+        topic: 2020-11-05-brreg-enhetsreg
         initial-position: FIRST
       target-storage:
         path: /kilde/brreg-enhetsreg/raadata/20201103

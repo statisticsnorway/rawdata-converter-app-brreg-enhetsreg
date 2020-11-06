@@ -17,7 +17,6 @@ import no.ssb.avro.convert.json.ToGenericRecord;
 import java.util.Collection;
 
 import static no.ssb.rawdata.converter.util.AvroSchemaUtil.readAvroSchema;
-import static no.ssb.rawdata.converter.util.RawdataMessageAdapter.posAndIdOf;
 
 @Slf4j
 public class EnhetsregRawdataConverter implements RawdataConverter {
@@ -36,7 +35,7 @@ public class EnhetsregRawdataConverter implements RawdataConverter {
     public EnhetsregRawdataConverter(EnhetsregRawdataConverterConfig converterConfig, ValueInterceptorChain valueInterceptorChain) {
         this.converterConfig = converterConfig;
         this.valueInterceptorChain = valueInterceptorChain;
-        dataSchema = readAvroSchema("schema/enhetsregisteret.avsc");
+        dataSchema = readAvroSchema("schema/enhetsreg_v1.0.avsc");
     }
 
     @Override

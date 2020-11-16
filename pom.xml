@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.ssb.rawdata.converter.app</groupId>
     <artifactId>rawdata-converter-app-brreg-enhetsreg</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <parent>
         <groupId>io.micronaut</groupId>
@@ -18,7 +18,7 @@
         <micronaut.version>2.1.2</micronaut.version>
         <rawdata-converter.version>0.5.9</rawdata-converter.version>
         <lombok.version>1.18.12</lombok.version>
-        <exec.mainClass>no.ssb.rawdata.converter.app.brreg-enhetsreg.Application</exec.mainClass>
+        <exec.mainClass>no.ssb.rawdata.converter.app.brreg.enhetsreg.Application</exec.mainClass>
     </properties>
 
     <scm>
